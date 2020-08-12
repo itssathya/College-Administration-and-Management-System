@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Faculty Database</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<ul class="nav">
+				<li class="nav-item">
+					<a class="nav-link active" href="index">Home</a>
+				</li>
+				<li class="nav-item dropdown ml-md-auto">
+					 <a class="nav-link dropdown-toggle" href="index" id="navbarDropdownMenuLink" data-toggle="dropdown">Actions</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+						 <a class="dropdown-item" href="logout">Logout</a>
+					</div>
+				</li>
+			</ul>
+			<h3 class="text-center">
+				On-Duty Management Portal
+			</h3>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>
+							ID
+						</th>
+						<th>
+							Name
+						</th>
+						<th>
+							Department
+						</th>
+						<th>
+							Section
+						</th>
+						<th>
+							Event Name
+						</th>
+						<th>
+							Event Institution
+						</th>
+						<th>
+							Event Date
+						</th>
+						<th>
+							Attendance
+						</th>
+						<th>
+							Reason
+						</th>
+						<th>
+							Approve/Reject
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for user in users %}
+					{% if user == users[0] %}
+					<tr><td>{{ user[0] }}</td><td>{{ user[1] }}</td><td>{{ user[2] }}</td><td>{{ user[3] }}</td><td>{{ user[4] }}</td><td>{{ user[5] }}</td><td>{{ user[6] }}</td><td>{{ user[7] }}</td><td>{{ user[8] }}</td><td><form action="/HoDOD" method="POST"><button type="submit" class="btn btn-default" name="ans" value="Approve">Approve</button><button type="submit" class="btn btn-default" name="ans" value="Reject">&nbsp;Reject</button></form></td></tr>
+					{% else %}
+					<tr><td>{{ user[0] }}</td><td>{{ user[1] }}</td><td>{{ user[2] }}</td><td>{{ user[3] }}</td><td>{{ user[4] }}</td><td>{{ user[5] }}</td><td>{{ user[6] }}</td><td>{{ user[7] }}</td><td>{{ user[8] }}</td><td>Queued</td></tr>
+					{% endif %}
+					{% endfor %}
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/scripts.js"></script>
+  </body>
+</html>
