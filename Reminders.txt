@@ -1,0 +1,5 @@
+Functionaity Completed:
+
+->Login
+->On Duty - Queue - Generate Email based on approval
+
